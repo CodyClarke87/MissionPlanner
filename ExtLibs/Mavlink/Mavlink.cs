@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 public partial class MAVLink
 {
-    public const string MAVLINK_BUILD_DATE = "Thu Oct 27 2016";
+    public const string MAVLINK_BUILD_DATE = "Wed Nov 23 2016";
     public const string MAVLINK_WIRE_PROTOCOL_VERSION = "2.0";
     public const int MAVLINK_MAX_PAYLOAD_LEN = 255;
 
@@ -203,6 +203,7 @@ public partial class MAVLink
 		new message_info(218, "GOPRO_SET_REQUEST", 17, 7, 7, typeof( mavlink_gopro_set_request_t )),
 		new message_info(219, "GOPRO_SET_RESPONSE", 162, 2, 2, typeof( mavlink_gopro_set_response_t )),
 		new message_info(226, "RPM", 207, 8, 8, typeof( mavlink_rpm_t )),
+		new message_info(227, "ASH_DATA", 63, 56, 56, typeof( mavlink_ash_data_t )),
 		new message_info(230, "ESTIMATOR_STATUS", 163, 42, 42, typeof( mavlink_estimator_status_t )),
 		new message_info(231, "WIND_COV", 105, 40, 40, typeof( mavlink_wind_cov_t )),
 		new message_info(232, "GPS_INPUT", 151, 63, 63, typeof( mavlink_gps_input_t )),
@@ -428,6 +429,7 @@ GOPRO_GET_RESPONSE = 217,
 GOPRO_SET_REQUEST = 218,
 GOPRO_SET_RESPONSE = 219,
 RPM = 226,
+ASH_DATA = 227,
 ESTIMATOR_STATUS = 230,
 WIND_COV = 231,
 GPS_INPUT = 232,
@@ -3631,6 +3633,57 @@ UAVIONIX_ADSB_TRANSCEIVER_HEALTH_REPORT = 10003,
         public  Single rpm1;
             /// <summary> RPM Sensor2 </summary>
         public  Single rpm2;
+    
+    };
+
+
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=56)]
+    public struct mavlink_ash_data_t
+    {
+        /// <summary> OPC sampling period </summary>
+        public  Single samplingPeriod;
+            /// <summary> PM1 concentration </summary>
+        public  Single myPM1;
+            /// <summary> PM3 concentration </summary>
+        public  Single myPM3;
+            /// <summary> PM10 concentration </summary>
+        public  Single myPM10;
+            /// <summary> PM17_5 concentration </summary>
+        public  Single myPM17_5;
+            /// <summary> total concentration </summary>
+        public  Single totalConc;
+            /// <summary> bin 0 count </summary>
+        public  UInt16 binCount0;
+            /// <summary> bin 1 count </summary>
+        public  UInt16 binCount1;
+            /// <summary> bin 2 count </summary>
+        public  UInt16 binCount2;
+            /// <summary> bin 3 count </summary>
+        public  UInt16 binCount3;
+            /// <summary> bin 4 count </summary>
+        public  UInt16 binCount4;
+            /// <summary> bin 5 count </summary>
+        public  UInt16 binCount5;
+            /// <summary> bin 6 count </summary>
+        public  UInt16 binCount6;
+            /// <summary> bin 7 count </summary>
+        public  UInt16 binCount7;
+            /// <summary> bin 8 count </summary>
+        public  UInt16 binCount8;
+            /// <summary> bin 9 count </summary>
+        public  UInt16 binCount9;
+            /// <summary> bin 10 count </summary>
+        public  UInt16 binCount10;
+            /// <summary> bin 11 count </summary>
+        public  UInt16 binCount11;
+            /// <summary> bin 12 count </summary>
+        public  UInt16 binCount12;
+            /// <summary> bin 13 count </summary>
+        public  UInt16 binCount13;
+            /// <summary> bin 14 count </summary>
+        public  UInt16 binCount14;
+            /// <summary> bin 15 count </summary>
+        public  UInt16 binCount15;
     
     };
 
